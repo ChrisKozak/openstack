@@ -1,0 +1,3 @@
+{
+    "run_list" : [ "recipe[7zip]", "recipe[windows::assign_logon_as_a_service_to_administrator]" ]
+}

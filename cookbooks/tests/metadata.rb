@@ -6,13 +6,15 @@ long_description ''
 version '0.0.1'
 
 recipe 'tests::default', 'Downloads tests'
+
 recipe 'tests::application_server', 'Verifies the application server is functional'
+recipe 'tests::database_server', 'Verifies the databse server is functional'
 recipe 'tests::logging_server', 'Verifies the logging server is functional'
 
 attribute 'tests/revision',
   :display_name => 'tests revision',
   :required => 'required',
-  :recipes => ['tests::default', 'tests::application_server', 'tests::logging_server']
+  :recipes => ['tests::default', 'tests::application_server', 'tests::database_server', 'tests::logging_server']
 
 attribute 'elmah/logging_server',
   :display_name => 'logging server',

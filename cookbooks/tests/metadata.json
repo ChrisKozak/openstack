@@ -26,6 +26,7 @@
       "recipes": [
         "tests::default",
         "tests::application_server",
+        "tests::database_server",
         "tests::logging_server"
       ],
       "choice": [
@@ -162,6 +163,7 @@
   "recipes": {
     "tests::default": "Downloads tests",
     "tests::application_server": "Verifies the application server is functional",
+    "tests::database_server": "Verifies the databse server is functional",
     "tests::logging_server": "Verifies the logging server is functional"
   },
   "version": "0.0.1"

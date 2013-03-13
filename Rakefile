@@ -5,5 +5,5 @@ task :knife, :cookbook do |t, args|
 end
 
 task :chef, :role do |t, args|
-  system("chef-solo -c solo.rb -j #{args[:role]}.json ")
+  system("chef-solo -c solo/solo.rb -j solo/#{args[:role]}.json ")
 end

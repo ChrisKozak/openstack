@@ -18,6 +18,11 @@ execute 'Checkout tests revision' do
   not_if { node[:tests][:revision] == 'head' }
 end
 
+execute 'Bundle install' do
+  command "bundle install"
+  cwd tests_directory
+end
+
 execute 'Create output folder' do
   command 'mkdir c:\temp'
   not_if { File.exist? 'c:\temp' }

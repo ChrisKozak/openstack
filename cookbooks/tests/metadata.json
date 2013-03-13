@@ -1,0 +1,169 @@
+{
+  "name": "tests",
+  "description": "Runs smoke tests",
+  "long_description": "",
+  "maintainer": "Cloud Infrastructure",
+  "maintainer_email": "csf@ultimatesoftware.com",
+  "license": "our license",
+  "platforms": {
+  },
+  "dependencies": {
+    "rightscale": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "tests/revision": {
+      "display_name": "tests revision",
+      "required": "required",
+      "recipes": [
+        "tests::default",
+        "tests::application_server",
+        "tests::logging_server"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "elmah/logging_server": {
+      "display_name": "logging server",
+      "required": "required",
+      "recipes": [
+        "tests::application_server"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "elmah/database_user": {
+      "display_name": "database user",
+      "required": "required",
+      "recipes": [
+        "tests::application_server",
+        "tests::logging_server"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "elmah/database_password": {
+      "display_name": "database password",
+      "required": "required",
+      "recipes": [
+        "tests::application_server",
+        "tests::logging_server"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "newgen/database_password": {
+      "display_name": "database password",
+      "required": "required",
+      "recipes": [
+        "tests::application_server"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "newgen/database_server": {
+      "display_name": "database server",
+      "required": "required",
+      "recipes": [
+        "tests::application_server"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "newgen/database_user": {
+      "display_name": "database user",
+      "required": "required",
+      "recipes": [
+        "tests::application_server"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "route53/domain": {
+      "display_name": "route 53 domain",
+      "required": "optional",
+      "recipes": [
+        "tests::application_server"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "route53/prefix": {
+      "display_name": "route 53 prefix",
+      "required": "optional",
+      "recipes": [
+        "tests::application_server"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "route53/ip": {
+      "display_name": "route 53 ip",
+      "required": "optional",
+      "recipes": [
+        "tests::application_server"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "windows/new_user_name": {
+      "display_name": "new user name",
+      "required": "required",
+      "recipes": [
+        "tests::application_server"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    }
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "tests::default": "Downloads tests",
+    "tests::application_server": "Verifies the application server is functional",
+    "tests::logging_server": "Verifies the logging server is functional"
+  },
+  "version": "0.0.1"
+}

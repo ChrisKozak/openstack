@@ -2,7 +2,7 @@ git = "\"#{ENV['PROGRAMFILES(X86)']}\\Git\\bin\\git\""
 tests_directory = '/infrastructure_tests'
 
 execute 'Removing previous clone' do
-  command "rd /s /q \"#{tests_directory}\""
+  command "rd /s /q #{tests_directory}
   cwd '/'
   only_if { File.exist?(tests_directory) }
 end

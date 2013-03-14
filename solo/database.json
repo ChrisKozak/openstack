@@ -3,7 +3,7 @@
         "recipe[7zip]",
         "recipe[windows::assign_logon_as_a_service_to_administrator]",
         "recipe[sql_server::server]",
-        "recipe[newgen::migration]",
+        "recipe[newgen::migrate]",
         "recipe[tests::database_server]"
     ],
     "sql_server": {

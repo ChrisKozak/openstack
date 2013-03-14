@@ -8,6 +8,7 @@ version          "0.0.1"
 supports "windows"
 
 depends 'core'
+depends 'windows'
 
 recipe "newgen::default", "Deploys New Gen websites"
 recipe "newgen::download", "Downloads binaries"

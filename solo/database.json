@@ -2,7 +2,9 @@
     "run_list": [
         "recipe[7zip]",
         "recipe[windows::assign_logon_as_a_service_to_administrator]",
+        "recipe[sql_server::server]",
         "recipe[tests::database_server]"
     ],
+    "sql_server": {"accept_eula": "true"},
     "tests": {"revision": "head"}
 }

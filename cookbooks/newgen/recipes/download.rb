@@ -23,6 +23,6 @@ if node[:platform] == "ubuntu"
   end
 else
   powershell "Downloading artifacts" do
-    source("ruby #{node[:ruby_scripts_dir]}/download_binaries.rb")
+    code "ruby #{node[:ruby_scripts_dir]}/download_binaries.rb"
   end
 end

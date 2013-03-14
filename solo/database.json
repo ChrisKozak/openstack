@@ -5,6 +5,11 @@
         "recipe[sql_server::server]",
         "recipe[tests::database_server]"
     ],
-    "sql_server": {"accept_eula": "true"},
-    "tests": {"revision": "head"}
+    "sql_server": {
+        "accept_eula": "true",
+        "server_sa_password": "Answer_42"
+    },
+    "tests": {
+        "revision": "head"
+    }
 }

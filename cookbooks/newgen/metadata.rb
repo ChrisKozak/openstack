@@ -51,7 +51,7 @@ attribute "route53/prefix",
 attribute "newgen/application_server",
   :display_name => "application server",
   :required => "required",
-  :recipes => ["newgen::default", "newgen::migrate"]
+  :recipes => ["newgen::default"]
 
 attribute "newgen/binaries_artifacts",
   :display_name => "binaries artifacts",

@@ -108,8 +108,7 @@
       "display_name": "application server",
       "required": "required",
       "recipes": [
-        "newgen::default",
-        "newgen::migrate"
+        "newgen::default"
       ],
       "choice": [
 

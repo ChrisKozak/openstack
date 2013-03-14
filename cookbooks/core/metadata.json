@@ -1,0 +1,33 @@
+{
+  "name": "core",
+  "description": "Installs basic tools to manage any instance",
+  "long_description": "",
+  "maintainer": "Cloud Infrastructure",
+  "maintainer_email": "csf@ultimatesoftware.com",
+  "license": "our license",
+  "platforms": {
+    "ubuntu": ">= 0.0.0",
+    "windows": ">= 0.0.0"
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "core::download_product_artifacts_prereqs": "Sets up prereqs for downloading product artifacts",
+    "core::download_vendor_artifacts_prereqs": "Sets up prereqs for downloading vendor artifacts"
+  },
+  "version": "0.0.1"
+}

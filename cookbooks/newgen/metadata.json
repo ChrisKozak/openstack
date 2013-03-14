@@ -1,0 +1,236 @@
+{
+  "name": "newgen",
+  "description": "Deploys the UGF software to the environment",
+  "long_description": "",
+  "maintainer": "Cloud Infrastructure",
+  "maintainer_email": "csf@ultimatesoftware.com",
+  "license": "our license",
+  "platforms": {
+    "windows": ">= 0.0.0"
+  },
+  "dependencies": {
+    "core": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "core/aws_access_key_id": {
+      "display_name": "aws access key id",
+      "required": "required",
+      "recipes": [
+        "newgen::default",
+        "newgen::download",
+        "newgen::migrate"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "core/aws_secret_access_key": {
+      "display_name": "aws secret access key",
+      "required": "required",
+      "recipes": [
+        "newgen::default",
+        "newgen::download",
+        "newgen::migrate"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "core/s3_bucket": {
+      "display_name": "s3 bucket for the UGF platform",
+      "required": "optional",
+      "default": "ugfgate1",
+      "recipes": [
+        "newgen::default",
+        "newgen::download",
+        "newgen::migrate"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "core/s3_repository": {
+      "display_name": "s3 repository for the services api",
+      "required": "optional",
+      "default": "NewGen",
+      "recipes": [
+        "newgen::default",
+        "newgen::download",
+        "newgen::migrate"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "route53/domain": {
+      "display_name": "route 53 domain",
+      "required": "optional",
+      "recipes": [
+        "newgen::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "route53/prefix": {
+      "display_name": "route 53 prefix",
+      "required": "optional",
+      "recipes": [
+        "newgen::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "newgen/application_server": {
+      "display_name": "application server",
+      "required": "required",
+      "recipes": [
+        "newgen::default",
+        "newgen::migrate"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "newgen/binaries_artifacts": {
+      "display_name": "binaries artifacts",
+      "required": "required",
+      "recipes": [
+        "newgen::default",
+        "newgen::download",
+        "newgen::migrate"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "newgen/binaries_revision": {
+      "display_name": "binaries revision",
+      "required": "required",
+      "recipes": [
+        "newgen::default",
+        "newgen::download",
+        "newgen::migrate"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "newgen/database_password": {
+      "display_name": "database password",
+      "required": "required",
+      "recipes": [
+        "newgen::default",
+        "newgen::migrate",
+        "newgen::smoke_tests"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "newgen/database_server": {
+      "display_name": "database server",
+      "required": "required",
+      "recipes": [
+        "newgen::default",
+        "newgen::migrate",
+        "newgen::smoke_tests"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "newgen/database_user": {
+      "display_name": "database user",
+      "required": "required",
+      "recipes": [
+        "newgen::default",
+        "newgen::migrate",
+        "newgen::smoke_tests"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "elmah/database_user": {
+      "display_name": "database user",
+      "required": "required",
+      "recipes": [
+        "newgen::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "elmah/database_password": {
+      "display_name": "database password",
+      "required": "required",
+      "recipes": [
+        "newgen::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "elmah/logging_server": {
+      "display_name": "logging server",
+      "required": "required",
+      "recipes": [
+        "newgen::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    }
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "newgen::default": "Deploys New Gen websites",
+    "newgen::download": "Downloads binaries",
+    "newgen::migrate": "Runs migrate",
+    "newgen::smoke_tests": "Runs smoke tests"
+  },
+  "version": "0.0.1"
+}

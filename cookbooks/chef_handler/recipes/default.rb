@@ -1,11 +1,9 @@
 #
-# Author:: Doug MacEachern (<dougm@vmware.com>)
 # Author:: Seth Chisamore (<schisamo@opscode.com>)
-# Cookbook Name:: windows
-# Resource:: unzip
+# Cookbook Name:: chef_handlers
+# Recipe:: default
 #
-# Copyright:: 2010, VMware, Inc.
-# Copyright:: 2011, Opscode, Inc.
+# Copyright 2011, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,14 +18,16 @@
 # limitations under the License.
 #
 
-actions :unzip, :zip
+Chef::Log.info("Chef Handlers will be at: #{node['chef_handler']['handler_path']}")
 
-attribute :path, :kind_of => String, :name_attribute => true
-attribute :source, :kind_of => String
-attribute :overwrite, :kind_of => [ TrueClass, FalseClass ], :default => false
-attribute :checksum, :kind_of => String
-
-def initialize(name, run_context=nil)
-  super
-  @action = :unzip
-end
+remote_directory node['chef_handler']['handler_path'] do
+  source 'handlers'
+  # Just inherit permissions on Windows, don't try to set POSIX perms
+  if node["platform"] != "windows"
+    owner node['chef_handler']['root_user']
+    group node['chef_handler']['root_group']
+    mode "0755"
+    recursive true
+  end
+  action :nothing
+end.run_action(:create)

@@ -1,11 +1,13 @@
-maintainer       "Cloud Infrastructure"
-maintainer_email "csf@ultimatesoftware.com"
-license          "our license"
-description      "Deploys the UGF software to the environment"
-long_description ""
-version          "0.0.1"
+name             "windows"
+maintainer       "Opscode, Inc."
+maintainer_email "cookbooks@opscode.com"
+license          "Apache 2.0"
+description      "Provides a set of useful Windows-specific primitives."
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+version          "1.8.4"
 
-supports "windows"
+supports         "windows"
+depends          "chef_handler"
 
 recipe "windows::assign_logon_as_a_service_to_administrator", "assign logon as a service to administrator"
 recipe "windows::set_administrator_password", "sets the administrator password"

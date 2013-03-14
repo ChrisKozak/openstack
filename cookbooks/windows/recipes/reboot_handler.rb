@@ -1,10 +1,8 @@
 #
-# Author:: Doug MacEachern (<dougm@vmware.com>)
 # Author:: Seth Chisamore (<schisamo@opscode.com>)
 # Cookbook Name:: windows
-# Resource:: unzip
+# Recipe:: restart_handler
 #
-# Copyright:: 2010, VMware, Inc.
 # Copyright:: 2011, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,14 +18,15 @@
 # limitations under the License.
 #
 
-actions :unzip, :zip
+remote_directory node['chef_handler']['handler_path'] do
+  source 'handlers'
+  recursive true
+  action :create
+end
 
-attribute :path, :kind_of => String, :name_attribute => true
-attribute :source, :kind_of => String
-attribute :overwrite, :kind_of => [ TrueClass, FalseClass ], :default => false
-attribute :checksum, :kind_of => String
-
-def initialize(name, run_context=nil)
-  super
-  @action = :unzip
+chef_handler 'WindowsRebootHandler' do
+  source "#{node['chef_handler']['handler_path']}/windows_reboot_handler.rb"
+  arguments node['windows']['allow_pending_reboots']
+  supports :report => true, :exception => false
+  action :enable
 end

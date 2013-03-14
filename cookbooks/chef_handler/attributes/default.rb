@@ -1,11 +1,9 @@
 #
-# Author:: Doug MacEachern (<dougm@vmware.com>)
 # Author:: Seth Chisamore (<schisamo@opscode.com>)
-# Cookbook Name:: windows
-# Resource:: unzip
+# Cookbook Name:: chef_handlers
+# Attribute:: default
 #
-# Copyright:: 2010, VMware, Inc.
-# Copyright:: 2011, Opscode, Inc.
+# Copyright 2011-2013, Opscode, Inc
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,14 +18,13 @@
 # limitations under the License.
 #
 
-actions :unzip, :zip
+default["chef_handler"]["root_user"] = "root"
 
-attribute :path, :kind_of => String, :name_attribute => true
-attribute :source, :kind_of => String
-attribute :overwrite, :kind_of => [ TrueClass, FalseClass ], :default => false
-attribute :checksum, :kind_of => String
-
-def initialize(name, run_context=nil)
-  super
-  @action = :unzip
+case platform
+when "openbsd", "freebsd", "mac_os_x", "mac_os_x_server"
+  default["chef_handler"]["root_group"] = "wheel"
+else
+  default["chef_handler"]["root_group"] = "root"
 end
+
+default["chef_handler"]["handler_path"] = "#{File.expand_path(File.join(Chef::Config[:file_cache_path], '..'))}/handlers"

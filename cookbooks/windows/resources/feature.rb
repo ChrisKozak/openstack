@@ -1,10 +1,8 @@
 #
-# Author:: Doug MacEachern (<dougm@vmware.com>)
 # Author:: Seth Chisamore (<schisamo@opscode.com>)
 # Cookbook Name:: windows
-# Resource:: unzip
+# Resource:: feature
 #
-# Copyright:: 2010, VMware, Inc.
 # Copyright:: 2011, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,14 +18,23 @@
 # limitations under the License.
 #
 
-actions :unzip, :zip
+include Windows::Helper
 
-attribute :path, :kind_of => String, :name_attribute => true
-attribute :source, :kind_of => String
-attribute :overwrite, :kind_of => [ TrueClass, FalseClass ], :default => false
-attribute :checksum, :kind_of => String
+actions :install, :remove
+
+attribute :feature_name, :kind_of => String, :name_attribute => true
 
 def initialize(name, run_context=nil)
   super
-  @action = :unzip
+  @action = :install
+  @provider = lookup_provider_constant(locate_default_provider)
+end
+
+private
+def locate_default_provider
+  if ::File.exists?(locate_sysnative_cmd('dism.exe'))
+    :windows_feature_dism
+  elsif ::File.exists?(locate_sysnative_cmd('servermanagercmd.exe'))
+    :windows_feature_servermanagercmd
+  end
 end

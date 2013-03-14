@@ -1,11 +1,9 @@
 #
-# Author:: Doug MacEachern (<dougm@vmware.com>)
-# Author:: Seth Chisamore (<schisamo@opscode.com>)
+# Author:: Doug MacEachern <dougm@vmware.com>
 # Cookbook Name:: windows
-# Resource:: unzip
+# Resource:: shortcut
 #
 # Copyright:: 2010, VMware, Inc.
-# Copyright:: 2011, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,14 +18,18 @@
 # limitations under the License.
 #
 
-actions :unzip, :zip
+actions :create
 
-attribute :path, :kind_of => String, :name_attribute => true
-attribute :source, :kind_of => String
-attribute :overwrite, :kind_of => [ TrueClass, FalseClass ], :default => false
-attribute :checksum, :kind_of => String
+default_action :create
 
-def initialize(name, run_context=nil)
+attribute :name, :kind_of => String
+attribute :target, :kind_of => String
+attribute :arguments, :kind_of => String
+attribute :description, :kind_of => String
+attribute :cwd, :kind_of => String
+
+# Covers 0.10.8 and earlier
+def initialize(*args)
   super
-  @action = :unzip
+  @action = :create
 end

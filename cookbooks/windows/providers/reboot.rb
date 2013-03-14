@@ -1,10 +1,8 @@
 #
-# Author:: Doug MacEachern (<dougm@vmware.com>)
 # Author:: Seth Chisamore (<schisamo@opscode.com>)
 # Cookbook Name:: windows
-# Resource:: unzip
+# Provider:: reboot
 #
-# Copyright:: 2010, VMware, Inc.
 # Copyright:: 2011, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,14 +18,14 @@
 # limitations under the License.
 #
 
-actions :unzip, :zip
+action :request do
+  node.run_state[:reboot_requested] = true
+  node.run_state[:reboot_timeout] = @new_resource.timeout
+  node.run_state[:reboot_reason] = @new_resource.reason
+end
 
-attribute :path, :kind_of => String, :name_attribute => true
-attribute :source, :kind_of => String
-attribute :overwrite, :kind_of => [ TrueClass, FalseClass ], :default => false
-attribute :checksum, :kind_of => String
-
-def initialize(name, run_context=nil)
-  super
-  @action = :unzip
+action :cancel do
+  node.run_state.delete(:reboot_requested)
+  node.run_state.delete(:reboot_timeout)
+  node.run_state.delete(:reboot_reason)
 end

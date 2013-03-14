@@ -26,13 +26,12 @@ action :create do
     Chef::Log.info "#{@new_resource} task already exists - nothing to do"
   else
     cmd =  "schtasks /Create /TN \"#{@new_resource.name}\" "
-    cmd += "/SC #{@new_resource.frequency} "
-    cmd += "/MO #{@new_resource.frequency_modifier} " if [:minute, :hourly, :daily, :weekly, :monthly].include?(@new_resource.frequency)
+    cmd += "/SC #{@new_resource.frequency} /MO #{@new_resource.frequency_modifier} "
     cmd += "/TR \"#{@new_resource.command}\" "
     if @new_resource.user && @new_resource.password
       cmd += "/RU \"#{@new_resource.user}\" /RP \"#{@new_resource.password}\" "
     elsif (@new_resource.user and !@new_resource.password) || (@new_resource.password and !@new_resource.user)
-      Chef::Log.warn "#{@new_resource.name}: Can't specify user or password without both!"
+      Chef::Log.fatal "#{@new_resource.name}: Can't specify user or password without both!"
     end
     cmd += "/RL HIGHEST " if @new_resource.run_level == :highest
     shell_out!(cmd, {:returns => [0]})
@@ -52,37 +51,24 @@ action :run do
       Chef::Log.info "#{@new_resource} task ran"
     end
   else
-    Chef::Log.debug "#{@new_resource} task does not exist - nothing to do"
+    Chef::Log.debug "#{@new_resource} task doesn't exists - nothing to do"
   end
 end
 
-action :enable do
+action :change do
   if @current_resource.exists
-    if @current_resource.enabled
-      Chef::Log.info "#{@new_resource} task is already enabled, skipping run"
-    else
-      cmd = "schtasks /Change /Enable /TN \"#{@current_resource.name}\""
-      shell_out!(cmd, {:returns => [0]})
-      @new_resource.updated_by_last_action true
-      Chef::Log.info "#{@new_resource} task enabled"
+    cmd =  "schtasks /Change /TN \"#{@current_resource.name}\" "
+    cmd += "/TR \"#{@new_resource.command}\" " if @new_resource.command
+    if @new_resource.user && @new_resource.password
+      cmd += "/RU \"#{@new_resource.user}\" /RP \"#{@new_resource.password}\" "
+    elsif (@new_resource.user and !@new_resource.password) || (@new_resource.password and !@new_resource.user)
+      Chef::Log.fatal "#{@new_resource.name}: Can't specify user or password without both!"
     end
+    shell_out!(cmd, {:returns => [0]})
+    @new_resource.updated_by_last_action true
+    Chef::Log.info "Change #{@new_resource} task ran"
   else
-    Chef::Log.debug "#{@new_resource} task does not exist - nothing to do"
-  end
-end
-
-action :disable do
-  if @current_resource.exists
-    if @current_resource.enabled
-      cmd = "schtasks /Change /Disable /TN \"#{@current_resource.name}\""
-      shell_out!(cmd, {:returns => [0]})
-      @new_resource.updated_by_last_action true
-      Chef::Log.info "#{@new_resource} task disabled"
-    else
-      Chef::Log.info "#{@new_resource} task is already disabled, skipping run"
-    end
-  else
-    Chef::Log.debug "#{@new_resource} task does not exist - nothing to do"
+    Chef::Log.debug "#{@new_resource} task doesn't exists - nothing to do"
   end
 end
 
@@ -93,7 +79,7 @@ action :delete do
     @new_resource.updated_by_last_action true
     Chef::Log.info "#{@new_resource} task deleted"
   else
-    Chef::Log.debug "#{@new_resource} task does not exist - nothing to do"
+    Chef::Log.debug "#{@new_resource} task doesn't exists - nothing to do"
   end
 end
 
@@ -102,16 +88,17 @@ def load_current_resource
   @current_resource.name(@new_resource.name)
 
   task_hash = load_task_hash(@current_resource.name)
-  if task_hash
+  if task_hash[:TaskName] == '\\' + @new_resource.name
     @current_resource.exists = true
-    @current_resource.status = :running if task_hash[:Status] == "Running"
-    @current_resource.enabled = task_hash[:ScheduledTaskState] == "Enabled"
+    if task_hash[:Status] == "Running"
+      @current_resource.status = :running
+    end
     @current_resource.cwd(task_hash[:Folder])
     @current_resource.command(task_hash[:TaskToRun])
     @current_resource.user(task_hash[:RunAsUser])
-  end
+  end if task_hash.respond_to? :[]
 end
-  
+
 private
 
 def load_task_hash(task_name)

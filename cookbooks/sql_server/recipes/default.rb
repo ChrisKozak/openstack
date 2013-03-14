@@ -1,10 +1,8 @@
 #
-# Author:: Doug MacEachern (<dougm@vmware.com>)
 # Author:: Seth Chisamore (<schisamo@opscode.com>)
-# Cookbook Name:: windows
-# Resource:: unzip
+# Cookbook Name:: sql_server
+# Recipe:: default
 #
-# Copyright:: 2010, VMware, Inc.
 # Copyright:: 2011, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,14 +18,4 @@
 # limitations under the License.
 #
 
-actions :unzip, :zip
-
-attribute :path, :kind_of => String, :name_attribute => true
-attribute :source, :kind_of => String
-attribute :overwrite, :kind_of => [ TrueClass, FalseClass ], :default => false
-attribute :checksum, :kind_of => String
-
-def initialize(name, run_context=nil)
-  super
-  @action = :unzip
-end
+include_recipe 'sql_server::client'

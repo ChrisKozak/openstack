@@ -1,11 +1,9 @@
 #
-# Author:: Doug MacEachern (<dougm@vmware.com>)
 # Author:: Seth Chisamore (<schisamo@opscode.com>)
-# Cookbook Name:: windows
-# Resource:: unzip
+# Cookbook Name:: sql_server
+# Library:: helper
 #
-# Copyright:: 2010, VMware, Inc.
-# Copyright:: 2011, Opscode, Inc.
+# Copyright:: Copyright (c) 2011 Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,14 +18,16 @@
 # limitations under the License.
 #
 
-actions :unzip, :zip
+require 'chef/mixin/shell_out'
 
-attribute :path, :kind_of => String, :name_attribute => true
-attribute :source, :kind_of => String
-attribute :overwrite, :kind_of => [ TrueClass, FalseClass ], :default => false
-attribute :checksum, :kind_of => String
+module SqlServer
+  class Helper
+    extend Chef::Mixin::ShellOut
 
-def initialize(name, run_context=nil)
-  super
-  @action = :unzip
+    def self.firewall_rule_enabled?(rule_name=nil)
+      cmd = shell_out("netsh advfirewall firewall show rule \"#{rule_name}\"")
+      cmd.stderr.empty? && (cmd.stdout =~ /Enabled:\s*Yes/i)
+    end
+
+  end
 end

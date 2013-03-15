@@ -4,9 +4,8 @@ end
 
 require 'rake'
 
-include_recipe 'newgen::download'
+#include_recipe 'newgen::download'
 
-=begin
 ruby_block 'Copying websites' do
   block do
     FileUtils.mkdir_p(node[:websites_directory])
@@ -24,4 +23,3 @@ execute 'Running migrate' do
   command "migrate.ci.with.username.bat #{node[:newgen][:database_server]} #{node[:newgen][:database_user]} #{node[:newgen][:database_password]}"
   cwd "#{node[:websites_directory]}/main_website/bin"
 end
-=end

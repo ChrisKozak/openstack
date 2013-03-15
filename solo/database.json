@@ -20,7 +20,7 @@
         "binaries_artifacts": "main_website,migration",
         "binaries_revision": "1.2572.2798",
         "database_password": "Answer_42",
-        "database_server": ".",
+        "database_server": "(local)",
         "database_user": "sa"
     },
     "tests": {

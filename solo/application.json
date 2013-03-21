@@ -3,22 +3,9 @@
         "recipe[windows::install_winhttpcertcfg]",
         "recipe[tests::application_server]"
     ],
-    "sql_server": {
-        "accept_eula": "true",
-        "server_sa_password": "Answer_42"
-    },
-    "core": {
-        "aws_access_key_id": "AKIAJUSXMDT47K37K5LQ",
-        "aws_secret_access_key": "kB/kQBuuG1dTKO4HNISf+YyEV03iENVfbEnXPD",
-        "s3_bucket": "ugfgate1",
-        "s3_repository": "NewGen"
-    },
-    "newgen": {
-        "binaries_artifacts": "main_website,migration",
-        "binaries_revision": "1.2572.2798",
-        "database_password": "Answer_42",
-        "database_server": "(local)",
-        "database_user": "sa"
+    "windows": {
+        "new_user_name": "neo",
+        "new_user_password": "th3_0n3"
     },
     "tests": {
         "revision": "head"

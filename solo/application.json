@@ -2,6 +2,7 @@
     "run_list": [
         "recipe[windows::install_winhttpcertcfg]",
         "recipe[windows::create_user]",
+        "recipe[windows::share_temp_folder]",
         "recipe[tests::application_server]"
     ],
     "windows": {

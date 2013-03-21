@@ -4,7 +4,7 @@ end
 
 require 'rake'
 
-include_recipe 'newgen::download'
+#include_recipe 'newgen::download'
 
 ruby_block 'Copying websites' do
   block do

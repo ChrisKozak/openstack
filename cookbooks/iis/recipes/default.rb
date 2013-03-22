@@ -43,10 +43,10 @@ feature_list = [
     'IIS-URLAuthorization',
     'IIS-WebDAV',
     'IIS-WindowsAuthentication',
+    'WAS-WindowsActivationService',
     'WAS-ConfigurationAPI',
     'WAS-NetFxEnvironment',
-    'WAS-ProcessModel',
-    'WAS-WindowsActivationService'
+    'WAS-ProcessModel'
   ]
 
 feature_list.each do |feature|

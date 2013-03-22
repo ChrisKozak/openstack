@@ -31,6 +31,8 @@ windows_zipfile "#{node[:installs_directory]}/#{artifact}" do
   not_if { File.exist?("#{node[:installs_directory]}/#{artifact}") }
 end
 
-windows_package 'Install gallio' do
+# for proper idempotence, the package name must exactly match what is in add/remove programs
+windows_package 'Gallio 3.3 build 458' do
   source "#{node[:installs_directory]}\\#{artifact}\\GallioBundle-3.3.458.0-Setup-x64.msi"
+  options '/qn'
 end

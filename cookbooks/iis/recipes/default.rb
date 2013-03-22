@@ -1,5 +1,4 @@
-feature_list =
-  "/featurename:" + [
+feature_list = [
     'IIS-WebServerRole',
     'IIS-WebServer',
     'IIS-WebServerManagementTools',
@@ -48,9 +47,10 @@ feature_list =
     'WAS-NetFxEnvironment',
     'WAS-ProcessModel',
     'WAS-WindowsActivationService'
-  ].join(' /featurename:')
+  ]
 
-powershell 'Install IIS' do
-  source("dism.exe /online /enable-feature #{feature_list} /norestart")
-  not_if  { File.exist?('c:\inetpub') }
+feature_list.each do |feature|
+  windows_feature feature do
+    action :install
+  end
 end

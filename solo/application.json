@@ -7,6 +7,12 @@
         "recipe[jdk::default]",
         "recipe[tests::application_server]"
     ],
+    "core": {
+        "aws_access_key_id": "AKIAJUSXMDT47K37K5LQ",
+        "aws_secret_access_key": "kB/kQBuuG1dTKO4HNISf+YyEV03iENVfbEnXPD",
+        "s3_bucket": "ugfgate1",
+        "s3_repository": "NewGen"
+    },
     "windows": {
         "new_user_name": "neo",
         "new_user_password": "th3_0n3"

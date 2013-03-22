@@ -3,6 +3,7 @@
         "recipe[windows::install_winhttpcertcfg]",
         "recipe[windows::create_user]",
         "recipe[windows::share_temp_folder]",
+        "recipe[7zip::default]",
         "recipe[tests::application_server]"
     ],
     "windows": {

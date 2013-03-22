@@ -1,14 +1,15 @@
 {
     "run_list": [
         "recipe[chrome]",
+        "recipe[git]",
         "recipe[windows::install_winhttpcertcfg]",
         "recipe[windows::create_user]",
         "recipe[windows::share_temp_folder]",
-        "recipe[7zip::default]",
-        "recipe[jdk::default]",
-        "recipe[gallio::default]",
-        "recipe[sql_server::default]",
-        "recipe[iis::default]",
+        "recipe[7zip]",
+        "recipe[jdk]",
+        "recipe[gallio]",
+        "recipe[sql_server]",
+        "recipe[iis]",
         "recipe[iis::create_deploy_website]",
         "recipe[tests::application_server]"
     ],

@@ -36,8 +36,3 @@ windows_package 'Git version 1.8.0-preview20121022' do
   options '/verysilent'
 end
 
-env('PATH') do
-  action :modify
-  delim ::File::PATH_SEPARATOR
-  value 'c:\Program Files (x86)\Git\bin'
-end

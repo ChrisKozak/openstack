@@ -5,6 +5,7 @@
         "recipe[windows::share_temp_folder]",
         "recipe[7zip::default]",
         "recipe[jdk::default]",
+        "recipe[gallio::default]",
         "recipe[tests::application_server]"
     ],
     "core": {

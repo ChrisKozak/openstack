@@ -34,5 +34,10 @@ end
 windows_package 'Git version 1.8.0-preview20121022' do
   source "#{download_directory}/#{artifact}/#{artifact}.exe"
   options '/verysilent'
-  not_if { File.exist?("#{ENV['programfilesx86']}\\Git") }
+end
+
+env('PATH') do
+  action :modify
+  delim ::File::PATH_SEPARATOR
+  value 'c:\Program Files (x86)\Git\bin'
 end

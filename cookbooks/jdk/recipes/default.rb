@@ -65,7 +65,7 @@ else
 
   powershell 'Installing jdk' do
     script = <<-EOF
-      cd /download_jdk/jdk_windows
+      cd /installs/jdk_windows
       cmd /c 'msiexec.exe /i jdk1.7.0_07.msi /qn INSTALLDIR=c:\\jdk'
     EOF
     code(script)

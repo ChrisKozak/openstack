@@ -53,7 +53,7 @@ if node[:platform] == 'ubuntu'
   end
 else
   powershell 'Downloading jdk' do
-    source("ruby #{node[:ruby_scripts_dir]}/download_jdk.rb")
+    code("ruby #{node[:ruby_scripts_dir]}/download_jdk.rb")
     not_if { File.exist?("#{download_directory}/#{artifact}.zip") }
   end
 
@@ -68,7 +68,7 @@ else
       cd /download_jdk/jdk_windows
       cmd /c 'msiexec.exe /i jdk1.7.0_07.msi /qn INSTALLDIR=c:\\jdk'
     EOF
-    source(script)
+    code(script)
     not_if { File.exist?(install_directory) }
   end
 

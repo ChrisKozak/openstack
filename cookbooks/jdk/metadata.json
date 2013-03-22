@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "core": ">= 0.0.0",
-    "rightscale": ">= 0.0.0",
+    "powershell": ">= 0.0.0",
     "windows": ">= 0.0.0"
   },
   "recommendations": {

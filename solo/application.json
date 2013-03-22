@@ -1,5 +1,6 @@
 {
     "run_list": [
+        "recipe[chrome]",
         "recipe[windows::install_winhttpcertcfg]",
         "recipe[windows::create_user]",
         "recipe[windows::share_temp_folder]",

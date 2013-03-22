@@ -7,8 +7,8 @@
         "recipe[jdk::default]",
         "recipe[gallio::default]",
         "recipe[sql_server::default]",
-        "recipe[iis:default]",
-        "recipe[iis:create_deploy_website]",
+        "recipe[iis::default]",
+        "recipe[iis::create_deploy_website]",
         "recipe[tests::application_server]"
     ],
     "core": {

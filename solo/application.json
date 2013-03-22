@@ -7,6 +7,8 @@
         "recipe[jdk::default]",
         "recipe[gallio::default]",
         "recipe[sql_server::default]",
+        "recipe[iis:default]",
+        "recipe[iis:create_deploy_website]",
         "recipe[tests::application_server]"
     ],
     "core": {
@@ -19,6 +21,7 @@
         "accept_eula": "true"
     },
     "windows": {
+        "administrator_password": "vagrant",
         "new_user_name": "neo",
         "new_user_password": "th3_0n3"
     },

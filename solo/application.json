@@ -6,6 +6,7 @@
         "recipe[7zip::default]",
         "recipe[jdk::default]",
         "recipe[gallio::default]",
+        "recipe[sql_server::default]",
         "recipe[tests::application_server]"
     ],
     "core": {
@@ -13,6 +14,9 @@
         "aws_secret_access_key": "kB/kQBuuG1dTKO4HNISf+YyEV03iENVfbEnXPD",
         "s3_bucket": "ugfgate1",
         "s3_repository": "NewGen"
+    },
+    "sql_server": {
+        "accept_eula": "true"
     },
     "windows": {
         "new_user_name": "neo",

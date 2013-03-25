@@ -11,8 +11,8 @@
 //        "recipe[sql_server]",
 //        "recipe[iis]",
 //        "recipe[iis::create_deploy_website]",
-        "recipe[elastic_search]"
-//        "recipe[tests::application_server]"
+        "recipe[elastic_search]",
+        "recipe[tests::application_server]"
     ],
     "core": {
         "aws_access_key_id": "AKIAJUSXMDT47K37K5LQ",

@@ -1,6 +1,17 @@
-#cloud-config
+ #!/bin/sh
+ echo "Downloading Chef Server"
+ sudo wget "https://opscode-omnitruck-release.s3.amazonaws.com/ubuntu/12.04/x86_64/chef-server_11.0.4-1.ubuntu.12.04_amd64.deb" -O /tmp/chef_server.deb
 
-password: ubuntu
-chpasswd: { expire: False }
-ssh_pwauth: True
+ echo "Installing Chef Server"
+ sudo dpkg -i /tmp/chef_server.deb
 
+ echo "Configuring Chef Server"
+ sudo chef-server-ctl reconfigure
+
+ echo "Verifying that Chef Server came up properly"
+ sudo chef-server-ctl test
+
+ echo "Changing hostname to chef.dev.us.corp"
+ sudo hostname chef.dev.us.corp
+
+ #change /etc/hostname to chef.dev.us.corp

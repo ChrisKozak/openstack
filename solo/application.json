@@ -1,18 +1,18 @@
 {
     "run_list": [
-        "recipe[chrome]",
-        "recipe[git]",
-        "recipe[windows::install_winhttpcertcfg]",
-        "recipe[windows::create_user]",
-        "recipe[windows::share_temp_folder]",
-        "recipe[7zip]",
-        "recipe[jdk]",
-        "recipe[gallio]",
-        "recipe[sql_server]",
-        "recipe[iis]",
-        "recipe[iis::create_deploy_website]",
-        "recipe[elastic_search]",
-        "recipe[tests::application_server]"
+//        "recipe[chrome]",
+//        "recipe[git]",
+//        "recipe[windows::install_winhttpcertcfg]",
+//        "recipe[windows::create_user]",
+//        "recipe[windows::share_temp_folder]",
+//        "recipe[7zip]",
+//        "recipe[jdk]",
+//        "recipe[gallio]",
+//        "recipe[sql_server]",
+//        "recipe[iis]",
+//        "recipe[iis::create_deploy_website]",
+        "recipe[elastic_search]"
+//        "recipe[tests::application_server]"
     ],
     "core": {
         "aws_access_key_id": "AKIAJUSXMDT47K37K5LQ",

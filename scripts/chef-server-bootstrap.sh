@@ -1,4 +1,25 @@
 #!/bin/sh
+
+sudo apt-get update
+sudo apt-get install -y ddclient
+
+echo "Updating ddclient.conf"
+sudo cat >> /etc/ddclient.conf <<EOF
+daemon=600
+cache=/tmp/ddclient.cache
+pid=/var/run/ddclient.pid
+use=if, if=eth0
+login=ultimatesoftware
+password=Ult1m@t3!
+protocol=dyndns2
+server=members.dyndns.org
+#wildcard=YES
+custom=yes, chef.ulti-cloud.com
+EOF
+
+echo "Updating DNS Record"
+sudo ddclient -daemon=0 -debug -verbose -noquiet
+
 sudo echo 'chef.ulti-cloud.com' > /etc/hostname
 sudo hostname -F /etc/hostname
 
@@ -10,7 +31,3 @@ sudo dpkg -i /tmp/chef_server.deb
 
 echo "Configuring Chef Server"
 sudo chef-server-ctl reconfigure
-
-echo "Verifying that Chef Server came up properly"
-sudo chef-server-ctl test
-

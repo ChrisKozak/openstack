@@ -9,8 +9,8 @@
 
 template 'c:\ipaddress.txt' do
   source 'ipaddress.txt.erb'
-  puts "Search results: #{search(:node,"name:db").first()['ipaddress']}"
-  variables(:ipaddress => search(:node,"name:db").first()['ipaddress'])
+  puts "Search results: #{search(:node,"name:db*").first()['ipaddress']}"
+  variables(:ipaddress => search(:node,"name:db*").first()['ipaddress'])
   action :create
 end
 

@@ -2,31 +2,31 @@
 
 $pem = @'
 -----BEGIN RSA PRIVATE KEY-----
-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
+MIIEowIBAAKCAQEAtovJJ/KGdqYIj3hMWwuptjtdNYUmuPqUqP6PoBDYT8nfI6Ct
+oiN7Hl1rRbAjxLYE41LhkBHnEsEbzANrzoTYxPAHTMAF++36qmYVA/CCK7mAjHIg
+FTT1+YMqPPE0AD8w2eQX6Cr2m/KAtUjH/WpCQeXlEJuQkJ1P74oXRWG9o1YsmFp2
+GvhzFGw0cUL1LUIqctLBIrvlxR+KMkAudaKLMQ1QV0N0Yqe/mSTRJ8hBDHLJHKNU
+wfB9waoWLgD4cM2mEjBsIFTScqpJFEBSN+wlBTIM1o8mcvWjMSx33fsKrxNBCPp9
+JKL5QZNC0cf3kSLuy1Obd3+3nRb+dfRHjZZvlwIDAQABAoIBAQCyR2Dkj7p8w/jW
+TXGc9Y4AuId2jpzbyXZIeZzBgdIQUqKHhBQvpqFGbYwnmjfElNO/Q6Ghd6qKKWjB
+XZH7NskRxS4L6fmuKqRFqL7bgxdOJrQB9i+ZJokX7t7gd90GZLCMDHTAvLzuXu8O
+nY8b0pv1CdYl2xhb9BcuZVoG28c+bXCwkLVGHOe1nEl8UYwW1VvnYVLIRaNt1IOO
+fbiYwL7HDs5s6xnq7aIVs22FfuOUAzVZsLROjVHhmAwojUxE7f7jsS/Kt0mnzF66
+341TTqFhuwnWNB12c6algy4/1Ji5t5Fm0iF1vmHtX47I9DuuN8/J53OKg3b5i78n
+6ELdoP8pAoGBAPLecH9hcBvbmGKWR98daMOJK328/Rddld9YOeryRFjPnmVebHlJ
+V19MsoLlhGcdQ0YHhO8SBBcNI+cq51m1ohe6x5ucQzqiZu2V7y94QHJ1jNuErEhZ
+rCaGuqLqPd2ljT5nMiNMdEuQH6TgdVoLo+tjLcgWtLOQK3l5SW/3kXBVAoGBAMBq
+ah9Vk19gEobGW7iTYI1wUWSxRQ6V5wGtRlzD6d4l4SzMzA7w8290wuT+0RFnAlN8
+kw5dcHssAtfH0JxHRi28/Tuk14MXPtbyYftL3i/SZwLg5zl9R17pViCAjXYgUQeq
+f/OUuWer7yJ6b5k4UfkJagjao7V9EoWJTHdm51w7AoGAQgbZPLgnu1sa9Yp3pZ+g
+MLClAz0S7XxC14Jr1ITiseZX4KUoBl07BKycR1vQgBwDgxFeQYR7Wiz3WsxeMxRf
+KeZch+CWomUuaF7/tL8TfkqY7cEG+XBvjdXI/auDADQWzyVNCy2o3DYldDSVktJh
+UQgYlTIfFEYYm6Cup2L9xjUCgYB8f14S0Cf+ugbCtW17S8BZQ6cmY5yvB0bkytyQ
+ASM83X2IoyoVMMoR/5Zq3IUhoWjb4+qyjLrOt3dPbrYHqAY8ad/fy5S1+UBri4Di
+PACTKKwGLMbvZ6PaQVe8x/C/0cEcGLGZRU2BSrn7sQSsOsivPewhtnXeZAKr7F5R
+k393KQKBgByQ3v5PkQGBZIL/G95uldZ29iYWr/qZWiRGfmZVjvc79wdhRcBSn3TQ
+Hal7rIsIKxJVHEfZu48RL9TuurOksA5T3RPQgsHWNtogH5DvHgqkvgPcThgZuGx9
+Uh7eE43UNYavsHjxCJMGlZveBgkEe0WnOqe1IDbqAxGZznoUM20A
 -----END RSA PRIVATE KEY-----
 '@
 
@@ -35,7 +35,9 @@ set-content 'c:\chef\validation.pem' $pem
 
 $client = @"
 chef_server_url 'https://10.71.144.13'
-node_name "$(hostname)"
+node_name "app.dev.us.corp"
+validation_client_name   'chef-validator'
+validation_key           "c:/chef/validation.pem"
 "@
 
 set-content 'c:\chef\client.rb' $client
@@ -44,5 +46,4 @@ $webclient = New-Object System.Net.Webclient
 $webclient.DownloadFile("https://opscode-omnitruck-release.s3.amazonaws.com/windows/2008r2/x86_64/chef-client-11.4.0-1.windows.msi","C:\chef-client-11.4.0-1.windows.msi");
 start-process C:\chef-client-11.4.0-1.windows.msi /quiet -wait
 
-cd c:\chef
-c:\opscode\chef\bin\chef-client
+start-process C:\opscode\chef\bin\chef-client -argumentList '-o "recipe[app_test]"' -wait

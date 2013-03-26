@@ -1,6 +1,6 @@
 installs_directory = 'c:/installs'
 
-Dir.mkdir(installs_directory) unless File.exist?(installs_directory)
+Dir.mkdir(installs_directory) unless Dir.exists?(installs_directory)
 
 cookbook_file "#{installs_directory}/7z465.exe" do
   source '7z465.exe'

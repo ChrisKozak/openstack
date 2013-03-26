@@ -1,0 +1,6 @@
+//chef-solo -c /openstack/solo/solo.rb -j /openstack/solo/currentgen/teamcity/basic_agent.json
+{
+    "run_list": [
+        "recipe[7zip]"
+    ]
+}

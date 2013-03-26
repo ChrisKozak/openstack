@@ -35,9 +35,9 @@ set-content 'c:\chef\validation.pem' $pem
 
 $client = @"
 chef_server_url 'https://chef.ulti-cloud.com'
-node_name "db.ulti-cloud.com"
+node_name                <%= @hostname %>
 validation_client_name   'chef-validator'
-validation_key           "c:/chef/validation.pem"
+validation_key           'c:/chef/validation.pem'
 "@
 
 set-content 'c:\chef\client.rb' $client
@@ -46,4 +46,4 @@ $webclient = New-Object System.Net.Webclient
 $webclient.DownloadFile("https://opscode-omnitruck-release.s3.amazonaws.com/windows/2008r2/x86_64/chef-client-11.4.0-1.windows.msi","C:\chef-client-11.4.0-1.windows.msi");
 start-process C:\chef-client-11.4.0-1.windows.msi /quiet -wait
 
-start-process C:\opscode\chef\bin\chef-client -argumentList '-o "recipe[database_test]"' -wait
+start-process C:\opscode\chef\bin\chef-client -argumentList "-o role[<%= @role %>]" -wait

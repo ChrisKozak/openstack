@@ -35,7 +35,7 @@ set-content 'c:\chef\validation.pem' $pem
 
 $client = @"
 chef_server_url 'https://10.71.144.13'
-node_name "app.dev.us.corp"
+node_name "app.ulti-cloud.com"
 validation_client_name   'chef-validator'
 validation_key           "c:/chef/validation.pem"
 "@

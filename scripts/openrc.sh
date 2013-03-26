@@ -7,16 +7,16 @@
 #
 # *NOTE*: Using the 2.0 *auth api* does not mean that compute api is 2.0.  We
 # will use the 1.1 *compute api*
-export OS_AUTH_URL=http://10.71.142.47:5000/v2.0
+export OS_AUTH_URL=http://10.71.142.72:5000/v2.0
 
 # With the addition of Keystone we have standardized on the term **tenant**
 # as the entity that owns the resources.
-export OS_TENANT_ID=b8597fd7361347698511d728a1531daa
-export OS_TENANT_NAME="NG-REC"
+export OS_TENANT_ID=97b4ae4e4a8d4f1ba5e7cecddfbbc3fa
+export OS_TENANT_NAME="NG-REC-DEV"
 
 # In addition to the owning entity (tenant), openstack stores the entity
 # performing the action as the **user**.
-export OS_USERNAME=recbuild
+export OS_USERNAME=ngr-build
 
 # With Keystone you pass the keystone password.
 echo "Please enter your OpenStack Password: "

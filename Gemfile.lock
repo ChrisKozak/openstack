@@ -63,6 +63,7 @@ GEM
       mixlib-shellout
       systemu
       yajl-ruby
+    rake (10.0.3)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     systemu (2.5.2)
@@ -83,4 +84,5 @@ PLATFORMS
 
 DEPENDENCIES
   chef (~> 11.4.0)
+  rake
   vagrant!

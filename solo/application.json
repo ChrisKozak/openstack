@@ -1,20 +1,31 @@
 {
     "run_list": [
-        "recipe[windows::install_winhttpcertcfg]",
-        "recipe[windows::create_user]",
-        "recipe[windows::share_temp_folder]",
-        "recipe[7zip::default]",
-        "recipe[jdk::default]",
-        "recipe[gallio::default]",
+//        "recipe[chrome]",
+//        "recipe[git]",
+//        "recipe[windows::install_winhttpcertcfg]",
+//        "recipe[windows::create_user]",
+//        "recipe[windows::share_temp_folder]",
+//        "recipe[7zip]",
+//        "recipe[jdk]",
+//        "recipe[gallio]",
+//        "recipe[sql_server]",
+//        "recipe[iis]",
+//        "recipe[iis::create_deploy_website]",
+        "recipe[elastic_search]",
         "recipe[tests::application_server]"
     ],
     "core": {
         "aws_access_key_id": "AKIAJUSXMDT47K37K5LQ",
         "aws_secret_access_key": "kB/kQBuuG1dTKO4HNISf+YyEV03iENVfbEnXPD",
         "s3_bucket": "ugfgate1",
+        "s3_repository_source": "s3",
         "s3_repository": "NewGen"
     },
+    "sql_server": {
+        "accept_eula": "true"
+    },
     "windows": {
+        "administrator_password": "vagrant",
         "new_user_name": "neo",
         "new_user_password": "th3_0n3"
     },

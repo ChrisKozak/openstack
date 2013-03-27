@@ -1,7 +1,7 @@
-
-installs_directory = 'c:\\installs'
-
-Dir.mkdir(installs_directory) unless File.exist?(installs_directory)
+directory node[:chrome][:installs_directory] do
+  action :create
+  recursive true
+end
 
 #todo: download from s3 instead of cookbook file
 #cookbook_file "#{installs_directory}\\GoogleChromeStandaloneEnterprise.msi" do
@@ -23,6 +23,6 @@ windows_registry 'HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome' do
 end
 
 windows_package 'Google Chrome' do
-  source("#{installs_directory}\\GoogleChromeStandaloneEnterprise.msi")
+  source("#{node[:chrome][:installs_directory]}\\GoogleChromeStandaloneEnterprise.msi")
   options '/qn'
 end

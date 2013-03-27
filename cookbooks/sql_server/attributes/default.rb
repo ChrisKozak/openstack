@@ -18,5 +18,7 @@
 # limitations under the License.
 #
 
-default['sql_server']['accept_eula'] = false
+#TODO: Is this just a copy of a public sql_server cookbook?  If so, use berkshelf and wrap it with ulti-sql_server.  Move accept_eula to wrapper
+#Why do these live in default?  Shouldn't they be in the server attributes?  Does the client use either of these?
+default['sql_server']['accept_eula'] = true
 default['sql_server']['product_key'] = nil

@@ -6,10 +6,18 @@ require 'rake'
 
 include_recipe 'newgen::download'
 
+directory node[:websites_directory] do
+  action :create
+  recursive true
+end
+
+directory node[:binaries_directory] do
+  action :create
+  recursive true
+end
+
 ruby_block 'Copying websites' do
   block do
-    FileUtils.mkdir_p(node[:websites_directory])
-    FileUtils.mkdir_p(node[:binaries_directory])
     FileUtils.cp_r("#{node[:binaries_directory]}/main_website", node[:websites_directory])
     FileUtils.cp_r("#{node[:binaries_directory]}/migration/.", "#{node[:websites_directory]}/main_website/bin")
   end

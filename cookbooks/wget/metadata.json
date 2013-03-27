@@ -1,6 +1,6 @@
 {
-  "name": "nant",
-  "description": "Installs nant",
+  "name": "wget",
+  "description": "Installs wget",
   "long_description": "",
   "maintainer": "Cloud Infrastructure",
   "maintainer_email": "csf@ultimatesoftware.com",
@@ -27,7 +27,7 @@
   "groupings": {
   },
   "recipes": {
-    "nant::default": "Downloads and installs nant"
+    "wget::default": "Downloads and installs wget"
   },
   "version": "0.0.1"
 }

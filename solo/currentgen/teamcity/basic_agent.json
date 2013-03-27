@@ -2,6 +2,10 @@
 {
     "run_list": [
         "recipe[7zip]",
-        "recipe[nant]"
+        "recipe[jre]",
+        "recipe[nant]",
+        "recipe[psexec]",
+        "recipe[svn]",
+        "recipe[wget]"
     ]
 }

@@ -1,7 +1,7 @@
 maintainer       'Cloud Infrastructure'
 maintainer_email 'csf@ultimatesoftware.com'
 license          'our license'
-description      'Installs nant'
+description      'Installs wget'
 long_description ''
 version          '0.0.1'
 
@@ -10,4 +10,4 @@ supports 'windows'
 depends 'core'
 depends 'windows'
 
-recipe 'nant::default', 'Downloads and installs nant'
+recipe 'wget::default', 'Downloads and installs wget'

@@ -4,6 +4,7 @@
         "recipe[7zip]",
         "recipe[nant]",
         "recipe[psexec]",
-        "recipe[svn]"
+        "recipe[svn]",
+        "recipe[jre]"
     ]
 }

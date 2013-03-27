@@ -1,14 +1,9 @@
-product = 'psexec'
+product = 'svn'
 
-download_vendor(product: product, version: '1.94')
+download_vendor(product: product, version: '1.6.16-1')
 
-execute "Copy #{product} to system32" do
-  command "copy #{product}.exe #{ENV['SYSTEMROOT']}\\Sysnative /Y"
+execute "Install #{product}" do
+  command "#{product}.exe /S"
   cwd "#{node[:installs_directory]}\\#{product}"
-  not_if { File.exists? "#{ENV['SYSTEMROOT']}\\Sysnative\\#{product}.exe" }
-end
-
-execute "Accept #{product} eula" do
-  command "#{ENV['SYSTEMROOT']}\\Sysnative\\#{product}.exe /accepteula"
-  returns [0, -1]
+  not_if {Dir.exists? "#{ENV['ProgramFiles(x86)']}\\CollabNet\\Subversion Client"}
 end

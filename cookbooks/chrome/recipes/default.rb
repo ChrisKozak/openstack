@@ -3,11 +3,10 @@ directory node[:chrome][:installs_directory] do
   recursive true
 end
 
-#todo: download from s3 instead of cookbook file
-#cookbook_file "#{installs_directory}\\GoogleChromeStandaloneEnterprise.msi" do
-#  source 'GoogleChromeStandaloneEnterprise.msi'
-#  not_if { File.exist?("#{installs_directory}\\GoogleChromeStandaloneEnterprise.msi") }
-#end
+remote_file "#{default[:chrome][:installs_directory]}\\GoogleChromeStandaloneEnterprise.msi" do
+  source 'https://dl.google.com/edgedl/chrome/install/GoogleChromeStandaloneEnterprise.msi'
+  action :create
+end
 
 windows_registry 'HKEY_LOCAL_MACHINE\Software\Policies\Google\Update' do
   values 'AutoUpdateCheckPeriodMinutes' => '0'

@@ -4,6 +4,7 @@ include_recipe 'core::download_vendor_artifacts_prereqs'
 artifact = 'git_install'
 download_directory = '/installs'
 
+#TODO: Why aren't these files in the templates directory?
 template "#{node[:ruby_scripts_dir]}/download_git.rb" do
   local true
   source "#{node[:ruby_scripts_dir]}/download_vendor_artifacts.erb"

@@ -1,5 +1,7 @@
 include_recipe 'core::download_product_artifacts_prereqs'
 
+gem_package('fog') { action :install }
+
 template "#{node[:ruby_scripts_dir]}/download_binaries.rb" do
   local true
   source "#{node[:ruby_scripts_dir]}/download_product_artifacts.erb"

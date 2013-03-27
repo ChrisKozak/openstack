@@ -1,6 +1,6 @@
 {
-  "name": "nant",
-  "description": "Installs nant",
+  "name": "psexec",
+  "description": "Installs psexec",
   "long_description": "",
   "maintainer": "Cloud Infrastructure",
   "maintainer_email": "csf@ultimatesoftware.com",
@@ -27,7 +27,7 @@
   "groupings": {
   },
   "recipes": {
-    "nant::default": "Downloads and installs nant"
+    "psexec::default": "Downloads and installs psexec"
   },
   "version": "0.0.1"
 }

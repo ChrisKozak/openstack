@@ -18,5 +18,9 @@
 # limitations under the License.
 #
 
-default['windows']['allow_pending_reboots'] = true
-default['windows']['rubyzipversion'] = nil
+default[:windows][:allow_pending_reboots] = true
+default[:windows][:rubyzipversion] = nil
+
+default[:windows][:administrator_password] = 'vagrant'
+default[:windows][:new_user_name] = 'neo'
+default[:windows][:new_user_password] = 'th3_0n3'

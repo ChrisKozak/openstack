@@ -1,0 +1,9 @@
+knife cookbook upload --all
+
+knife node delete application.ulti-cloud.com -y
+knife client delete application.ulti-cloud.com -y
+rake 'bootstrap_windows_node[application.ulti-cloud.com, application]'
+
+#knife node delete database.ulti-cloud.com -y
+#knife client delete database.ulti-cloud.com -y
+#rake 'bootstrap_windows_node[database.ulti-cloud.com, database]'

@@ -8,7 +8,7 @@ task :solo, :role do |t, args|
   system("chef-solo -c solo/solo.rb -j solo/#{args[:role]}.json ")
 end
 
-task :bootstrap, :hostname, :role do |t, args|
+task :bootstrap_windows_node, :hostname, :role do |t, args|
   require 'erb'
   require 'tempfile'
 

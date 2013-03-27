@@ -1,3 +1,9 @@
+default[:newgen][:binaries_artifacts] = 'main_website,migration'
+default[:newgen][:binaries_revision] = '1.2572.2798'
+default[:newgen][:database_password] = 'Answer_42'
+default[:newgen][:database_server] = '(local)'
+default[:newgen][:database_user] = 'sa'
+
 default[:ruby_scripts_dir] = '/rubyscripts'
 default[:binaries_directory] = '/deployscripts_binaries'
 default[:powershell_scripts_dir] = '/PowershellScripts'
